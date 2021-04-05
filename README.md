@@ -1,12 +1,25 @@
 # Bicep - Workflow
 
-Template repository for provisioning Azure services with Bicep.
+Use this template to bootstrap the provisioning of Azure services with Bicep.
 
-Integrated GitHub Actions to compile Bicep source, validate templates and deploy.
+This template includes the integrated GitHub Actions to compile Bicep source, validate templates and deploy.
 
-Required secrets:
+Within the `src/` folder you will find the core `main.bicep` with an example module.
+
+The `main.bicep` is set to deploy at subscription scope as well as the `Resources` module for Resource Groups.
+
+Define additional modules and set the `targetScope` to deploy resources.
+
+## Pre-requisites
+
+Create a Service Principal and assign the necessary scope permissions.
 
 - ARM_TENANT_ID
 - ARM_SUBSCRIPTION_ID
 - ARM_CLIENT_ID
 - ARM_CLIENT_SECRET
+
+## Reference
+
+[Bicep](https://github.com/Azure/bicep)
+[Templates](https://docs.microsoft.com/azure/templates/)
