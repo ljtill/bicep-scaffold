@@ -1,4 +1,4 @@
-# Bicep - Workflow
+# Bicep - Scaffold
 
 Use this template to bootstrap a new repository with ready to use pipelines for deploying Azure services.
 
