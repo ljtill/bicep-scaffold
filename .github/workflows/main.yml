@@ -55,7 +55,7 @@ jobs:
           subscription-id: ${{ env.subscription-id }}
 
       - name: Download
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: template
           path: ./src/main.json
@@ -83,7 +83,7 @@ jobs:
           subscription-id: ${{ env.subscription-id }}
 
       - name: Download
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: template
           path: ./src/main.json
