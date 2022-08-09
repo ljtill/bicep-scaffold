@@ -1,6 +1,6 @@
 # Bicep - Scaffold
 
-Use this template to bootstrap a new repository with ready to use pipelines for deploying Azure services.
+Use this template to bootstrap a new repository with ready to use workflows for deploying Azure services.
 
 This template includes the integrated GitHub Actions to compile Bicep source, validate templates and deploy.
 
@@ -8,7 +8,11 @@ Within the `src/` folder you will find the core `main.bicep` with an example mod
 
 ## Pre-requisites
 
-Create a Service Principal and assign the necessary scope permissions.
+Create an Azure Active Directory application and a service principal.
+
+Add federated credentials for the Azure Active Directory application.
+
+Create GitHub secrets for storing Azure configuration.
 
 - ARM_TENANT_ID
 - ARM_SUBSCRIPTION_ID
@@ -17,5 +21,6 @@ Create a Service Principal and assign the necessary scope permissions.
 
 ## Reference
 
-[Bicep](https://github.com/Azure/bicep)  
+[Bicep](https://github.com/Azure/bicep)
 [Templates](https://docs.microsoft.com/azure/templates/)
+[OpenID Connect](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure)
