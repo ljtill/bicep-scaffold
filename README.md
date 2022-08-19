@@ -6,8 +6,8 @@ The workflow is compiled of three key stages - compile Bicep files, validate res
 
 Within the `src/` directory, you will find the following artifacts:
 
-- `main.bicep` This is the main Bicep file that will load the configuration metadata, resource group and resource modules.
-- `configs/` This directory contains the configuration files for the deployments. This could also be split into multiple lifecycles for different environments.
+- `main.bicep` This is the main Bicep file that will load the configuration and resource modules.
+- `configs/` This directory contains the configuration files for the deployments.
 - `modules/` This directory that contains the resource groups and resource modules.
 
 ### Getting Started
