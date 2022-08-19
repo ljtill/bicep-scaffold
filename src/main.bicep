@@ -4,16 +4,23 @@
 
 targetScope = 'subscription'
 
-// ---------
+// -------
 // Modules
-// ---------
+// -------
 
-// Resources
-module resources './modules/resources/main.bicep' = {
+module groups './modules/groups/resources.bicep' = {
   name: 'Microsoft.Resources'
-  scope: subscription()
+  scope: subscription(config.subscription)
   params: {
-    location: location
+    config: config
+  }
+}
+
+module components './modules/components/resources.bicep' = {
+  name: 'Microsoft.Resources'
+  scope: resourceGroup(config.resourceGroup)
+  params: {
+    config: config
   }
 }
 
@@ -21,7 +28,4 @@ module resources './modules/resources/main.bicep' = {
 // Variables
 // ---------
 
-var location = {
-  name: ''
-  prefix: ''
-}
+var config = loadJsonContent('configs/main.json')
