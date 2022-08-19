@@ -1,23 +1,32 @@
 # Scaffold
 
-Use this template to bootstrap a new repository with ready to use workflows for deploying Azure services.
+Use this template to bootstrap a new repository with ready to use automation for deploying Azure services.
 
-This template includes the integrated GitHub Actions to compile Bicep source, validate templates and deploy.
+The workflow is compiled of three key stages - compile Bicep files, validate resource changes (what-if) and deploy resources. This workflow can be customized toy your needs and deployment scenarios. The workflow can also be integrated with environments if you have multiple application lifecycles.
 
-Within the `src/` folder you will find the core `main.bicep` with an example module. The `main.bicep` is set to deploy at subscription scope as well as the `Resources` module for Resource Groups. Define additional modules and set the `targetScope` to deploy resources.
+Within the `src/` directory, you will find the following artifacts:
 
-### Pre-requisites
+- `main.bicep` This is the main Bicep file that will load the configuration and resource modules.
+- `configs/` This directory contains the configuration files for the deployments.
+- `modules/` This directory that contains the resource groups and resource modules.
 
-Create an Azure Active Directory application and a service principal.
+### Getting Started
 
-Add federated credentials for the Azure Active Directory application.
+Azure Active Directory
 
-Create GitHub secrets for storing Azure configuration.
+- Create new application
+- Setup federated credentials
 
-- ARM_TENANT_ID
-- ARM_SUBSCRIPTION_ID
-- ARM_CLIENT_ID
-- ARM_CLIENT_SECRET
+Azure Resource Manager
+
+- Create role assignment
+
+GitHub Actions
+
+- Add repository secrets
+  - ARM_TENANT_ID
+  - ARM_SUBSCRIPTION_ID
+  - ARM_CLIENT_ID
 
 ### Links
 
