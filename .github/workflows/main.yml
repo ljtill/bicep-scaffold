@@ -29,7 +29,7 @@ jobs:
 
       - name: Build
         run: |
-          az bicep build `
+          az bicep build \
             --file ./src/main.bicep
 
       - name: Upload
@@ -61,9 +61,9 @@ jobs:
 
       - name: Validate
         run: |
-          az deployment sub what-if `
-           --name ${{ env.deployment-name }} `
-           --location ${{ env.deployment-location }} `
+          az deployment sub what-if \
+           --name ${{ env.deployment-name }} \
+           --location ${{ env.deployment-location }} \
            --template-file ./src/main.json
 
   deploy:
@@ -89,7 +89,7 @@ jobs:
 
       - name: Deploy
         run: |
-          az deployment sub create `
-            --name ${{ env.deployment-name }} `
-            --location ${{ env.deployment-location }} `
+          az deployment sub create \
+            --name ${{ env.deployment-name }} \
+            --location ${{ env.deployment-location }} \
             --template-file ./src/main.json
