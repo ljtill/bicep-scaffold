@@ -32,7 +32,4 @@ jobs:
           az deployment sub create \
             --name "GitHub.Actions" \
             --location "uksouth" \
-            --template-file ./src/main.bicep \
-            --parameters \
-              username=${{ secrets.AZURE_USERNAME }} \
-              password=${{ secrets.AZURE_PASSWORD }}
+            --template-file ./src/main.bicep
