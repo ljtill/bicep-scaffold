@@ -2,11 +2,12 @@
 
 Use this template to bootstrap a new repository with ready to use automation for deploying Azure services.
 
-The workflow is comprised of three stages - build, validate and deploy. These stages can be customized for each unique environment needs and deployment scenarios.
+The workflow is comprised of three stages - build, validate and deploy. These stages can be customized for unique environment needs and deployment scenarios.
 
 Within the `src/` directory, there are the following artifacts:
 
-- `main.bicep` This Bicep file that will load the local configuration and resource modules.
+- `main.bicep` This Bicep file that will load the local configuration, default options and resource modules.
+- `defaults.json` This JSON file provides Bicep with a set of re-usable default values.
 - `configs/` This contains the configuration files for the deployment and environments.
 - `modules/` This contains the base resource group and resource modules to quickly get started.
 
@@ -46,10 +47,8 @@ GitHub Actions - Secrets
 - Select 'New repository secret' and create a secret for the following:
   - AZURE_TENANT_ID
   - AZURE_SUBSCRIPTION_ID
-  - AZURE_READER_CLIENT_ID
-  - AZURE_CONTRIBUTOR_CLIENT_ID
-
-> The reason for the two AAD applications is to provide the least priviledge permissions at certain points in the development stage. For example, when a new Pull Request is created the Build job is trigger which compiles the Bicep files to ensure there aren't any syntactical error, followed by this the the workflows will run the generate template against ARM with the What-If parameter which allows the developer to see what changes against the infrastructure there will be with the Pull Request. Upon approving, squashing and merging the Deploy workflow will run and make those changes into the environment.
+  - AZURE_CLIENT_ID_READER
+  - AZURE_CLIENT_ID_CONTRIBUTOR
 
 ---
 
