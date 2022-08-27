@@ -28,5 +28,10 @@ module components './modules/components/resources.bicep' = {
 // Variables
 // ---------
 
-var config = loadJsonContent('configs/main.json')
 var defaults = loadJsonContent('defaults.json')
+
+// ----------
+// Parameters
+// ----------
+
+param config object = loadJsonContent('configs/main.json')
