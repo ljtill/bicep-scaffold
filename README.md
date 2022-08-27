@@ -10,6 +10,8 @@ Within the `src/` directory, there are the following artifacts:
 - `configs/` This contains the configuration files for the deployment and environments.
 - `modules/` This contains the base resource group and resource modules to quickly get started.
 
+---
+
 ### Getting Started
 
 Azure Active Directory - Application - Reader
@@ -49,6 +51,8 @@ GitHub Actions - Secrets
 
 > The reason for the two AAD applications is to provide the least priviledge permissions at certain points in the development stage. For example, when a new Pull Request is created the Build job is trigger which compiles the Bicep files to ensure there aren't any syntactical error, followed by this the the workflows will run the generate template against ARM with the What-If parameter which allows the developer to see what changes against the infrastructure there will be with the Pull Request. Upon approving, squashing and merging the Deploy workflow will run and make those changes into the environment.
 
+---
+
 ### Development Process
 
 - Create new feature / fix branch, commit changes and push to the repository
@@ -59,13 +63,13 @@ GitHub Actions - Secrets
 - Upon merging the pull request into the default branch (main), the deploy workflow will be triggered
   - The deploy workflow will use the `az deployment sub create` command to start a new resource deployment
 
-If Branch Protection is configured against the default branch with Status Checks enabled, copy the following file in the `workflows/` directory
-
-`.github/examples/status.yml`
+If Branch Protection is configured against the default branch with Status Checks enabled, copy the `.github/examples/status.yml` file in the `workflows/` directory
 
 This is due to the [Required Status Checks][1] restricting the ability to merge the pull request into the default branch (main) as certain conditions (path filters) haven't been met to trigger.
 
 [1]: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks
+
+---
 
 ### Links
 
