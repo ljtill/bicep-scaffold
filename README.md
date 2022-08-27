@@ -6,10 +6,10 @@ The workflow is comprised of three stages - build, validate and deploy. These st
 
 Within the `src/` directory, there are the following artifacts:
 
-- `main.bicep` This Bicep file that will load the local configuration, default options and resource modules.
-- `defaults.json` This JSON file provides Bicep with a set of re-usable default values.
-- `configs/` This contains the configuration files for the deployment and environments.
-- `modules/` This contains the base resource group and resource modules to quickly get started.
+- `main.bicep` This Bicep file that will load the local configuration, default options and resource modules
+- `defaults.json` This JSON file provides Bicep with a set of re-usable default values
+- `configs/` This contains the configuration files for the deployment and environments
+- `modules/` This contains the base resource group and resource modules to quickly get started
 
 ---
 
@@ -17,8 +17,8 @@ Within the `src/` directory, there are the following artifacts:
 
 Azure Active Directory - Application - Reader
 
-- Navigate to the 'App Registration' blade wihin the Azure portal.
-- Select 'New registration' and provide a Name for the application.
+- Navigate to the 'App Registration' blade wihin the Azure portal
+- Select 'New registration' and provide a Name for the application
 - Select the newly created application and select 'Certificates & secrets'
 - Select 'Federated Credentials' and 'Add credential'
 - Provide the 'Organization (username)' and Repository for the credential
@@ -31,7 +31,7 @@ Azure Active Directory - Application - Contributor
 
 Azure Resource Manager - Role Assignment - Reader
 
-- Navigate to the Subscription in the Azure portal.
+- Navigate to the Subscription in the Azure portal
 - Select 'Access control (IAM)' and 'Add' - 'Add role assignment'
 - Select Role - Reader and select 'Members'
 - Provide the 'Name' of the application from the previous steps
