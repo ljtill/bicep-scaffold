@@ -29,3 +29,4 @@ module components './modules/components/resources.bicep' = {
 // ---------
 
 var config = loadJsonContent('configs/main.json')
+var defaults = loadJsonContent('defaults.json')
