@@ -23,7 +23,6 @@ Azure Active Directory - Application - Reader
 - Select 'Federated Credentials' and 'Add credential'
 - Provide the 'Organization (username)' and Repository for the credential
 - Select 'Entity type' - Pull Request and provide a 'Name' for the credential
-- Repeat this process but replace the 'Entity type' - Branch and provide 'main'
 
 Azure Active Directory - Application - Contributor
 
