@@ -3,7 +3,11 @@
         "core": {
             "enabled": true,
             "verbose": false,
-            "rules": {}
+            "rules": {
+              "no-unused-vars": {
+                "level": "off"
+              }
+}
         }
     },
     "cloud": {
