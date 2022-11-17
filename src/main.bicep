@@ -22,6 +22,9 @@ module components './modules/components/resources.bicep' = {
   params: {
     config: config
   }
+  dependsOn: [
+    groups
+  ]
 }
 
 // ---------
