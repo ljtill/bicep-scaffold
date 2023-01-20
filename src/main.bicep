@@ -10,17 +10,19 @@ targetScope = 'subscription'
 
 module groups './modules/groups/resources.bicep' = {
   name: 'Microsoft.Resources'
-  scope: subscription(config.subscription)
+  scope: subscription(settings.subscriptionId)
   params: {
-    config: config
+    defaults: defaults
+    settings: settings
   }
 }
 
 module components './modules/components/resources.bicep' = {
   name: 'Microsoft.Resources'
-  scope: resourceGroup(config.resourceGroup)
+  scope: resourceGroup(settings.resourceGroup.name)
   params: {
-    config: config
+    defaults: defaults
+    settings: settings
   }
   dependsOn: [
     groups
@@ -37,4 +39,4 @@ var defaults = loadJsonContent('defaults.json')
 // Parameters
 // ----------
 
-param config object = loadJsonContent('configs/main.json')
+param settings object

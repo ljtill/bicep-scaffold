@@ -9,20 +9,15 @@ targetScope = 'subscription'
 // ---------
 
 resource resourceGroup 'Microsoft.Resources/resourceGroups@2020-06-01' = {
-  name: config.resourceGroup
-  location: config.location
+  name: settings.resourceGroup.name
+  location: settings.resourceGroup.location
   properties: {}
-  tags: config.tags
+  tags: settings.tags
 }
-
-// ---------
-// Variables
-// ---------
-
-var defaults = loadJsonContent('../../defaults.json')
 
 // ----------
 // Parameters
 // ----------
 
-param config object
+param defaults object
+param settings object
