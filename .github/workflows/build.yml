@@ -1,13 +1,8 @@
 name: "Build"
 
 on:
-  pull_request:
-    paths:
-      - "src/**"
-
-permissions:
-  id-token: write
-  contents: read
+  push:
+    paths: 'src/**'
 
 jobs:
   build:
@@ -21,27 +16,5 @@ jobs:
       - name: Build
         run: |
           az bicep build \
-            --file ./src/main.bicep
-
-  validate:
-    name: "Validate"
-    runs-on: ubuntu-22.04
-    needs: build
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Login
-        uses: azure/login@v1
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID_READER }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
-      - name: Validate
-        run: |
-          az deployment sub what-if \
-            --name "GitHub.Actions" \
-            --location "uksouth" \
-            --template-file ./src/main.bicep
+            --file ./src/main.bicep \
+            --stdout
