@@ -1,23 +1,20 @@
 {
-    "analyzers": {
-        "core": {
-            "enabled": true,
-            "verbose": false,
-            "rules": {
-              "no-unused-params": {
-                "level": "warning"
-              },
-              "no-unused-vars": {
-                "level": "off"
-              }
-}
+  "analyzers": {
+    "core": {
+      "enabled": true,
+      "verbose": false,
+      "rules": {
+        "no-unused-params": {
+          "level": "off"
         }
-    },
-    "cloud": {
-        "currentProfile": "AzureCloud"
-    },
-    "moduleAliases": {
-        "ts": {},
-        "br": {}
+      }
     }
+  },
+  "cloud": {
+    "currentProfile": "AzureCloud"
+  },
+  "moduleAliases": {
+    "ts": {},
+    "br": {}
+  }
 }

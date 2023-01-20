@@ -8,14 +8,11 @@ targetScope = 'resourceGroup'
 // Resources
 // ---------
 
-// ---------
-// Variables
-// ---------
-
-var defaults = loadJsonContent('../../defaults.json')
+// Placeholder
 
 // ----------
 // Parameters
 // ----------
 
-param config object
+param defaults object
+param settings object
