@@ -2,7 +2,7 @@ name: "Build"
 
 on:
   push:
-    paths: 'src/**'
+    paths: ['src/**']
 
 jobs:
   build:
