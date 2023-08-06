@@ -7,9 +7,10 @@ The workflow is comprised of three stages - build, test and deploy. These stages
 Within the `src/` directory, there are the following artifacts:
 
 - `main.bicep` This Bicep file that will load defaults, user-defined settings and resource modules
-- `defaults.json` This JSON file provides Bicep with a set of re-usable default values
-- `modules/` This contains the base resource group and resource modules to quickly get started
-- `parameters/` This contains the parameter files for the deployment and environments
+- `main.bicepparam` This Bicep parameter file handles environment specific settings
+- `bicepconfig.json` This JSON file will customize the Bicep development experience
+- `defaults.json` This JSON file provides Bicep with a set of re-usable common values
+- `modules/` This contains resource groups and resource modules to quickly get started
 
 ---
 
