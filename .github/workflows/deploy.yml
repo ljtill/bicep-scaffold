@@ -33,4 +33,4 @@ jobs:
             --name "GitHub.Actions" \
             --location "uksouth" \
             --template-file ./src/main.bicep \
-            --parameters @./src/parameters/main.json
+            --parameters @./src/main.bicepparam
