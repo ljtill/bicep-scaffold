@@ -18,6 +18,24 @@ Within the `src/` directory, there are the following artifacts:
 
 ### Deployment
 
+#### Local Commands
+
+```bash
+az deployment sub create \
+  --name '' \
+  --location '' \
+  --template-file './src/main.bicep' \
+  --parameters './src/main.bicepparam'
+```
+
+```powershell
+New-AzSubscriptionDeployment `
+  -Name "" `
+  -Location "" `
+  -TemplateFile "./src/main.bicep" `
+  -TemplateParameterFile "./src/main.bicepparam"
+```
+
 #### GitHub Actions
 
 Azure Active Directory - Application
@@ -45,24 +63,6 @@ GitHub Actions - Secrets
   - AZURE_TENANT_ID
   - AZURE_SUBSCRIPTION_ID
   - AZURE_CLIENT_ID
-
-#### Local Commands
-
-```bash
-az deployment sub create \
-  --name '' \
-  --location '' \
-  --template-file './src/main.bicep' \
-  --parameters './src/main.bicepparam'
-```
-
-```powershell
-New-AzSubscriptionDeployment `
-  -Name "" `
-  -Location "" `
-  -TemplateFile "./src/main.bicep" `
-  -TemplateParameterFile "./src/main.bicepparam"
-```
 
 ---
 
