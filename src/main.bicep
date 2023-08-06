@@ -8,8 +8,9 @@ targetScope = 'subscription'
 // Modules
 // -------
 
-module groups './modules/groups/resources.bicep' = {
-  name: 'Microsoft.Resources'
+// Resource Groups
+module groups './modules/groups.bicep' = {
+  name: 'Microsoft.ResourceGroups'
   scope: subscription(settings.subscriptionId)
   params: {
     defaults: defaults
@@ -17,9 +18,10 @@ module groups './modules/groups/resources.bicep' = {
   }
 }
 
-module components './modules/components/resources.bicep' = {
+// Resources
+module resources './modules/resources.bicep' = {
   name: 'Microsoft.Resources'
-  scope: resourceGroup(settings.resourceGroup.name)
+  scope: resourceGroup(settings.resourceGroups[0].name)
   params: {
     defaults: defaults
     settings: settings
