@@ -1,0 +1,30 @@
+{
+  "analyzers": {
+    "core": {
+      "enabled": true,
+      "verbose": false,
+      "rules": {
+        "no-unused-params": {
+          "level": "off"
+        }
+      }
+    }
+  },
+  "cloud": {
+    "currentProfile": "AzureCloud"
+  },
+  "experimentalFeaturesEnabled": {
+    "dynamicTypeLoading": true,
+    "extensibility": true,
+    "optionalModuleNames": true,
+    "resourceDerivedTypes": true,
+    "resourceTypedParamsAndOutputs": true,
+    "sourceMapping": true,
+    "symbolicNameCodegen": true,
+    "userDefinedFunctions": true
+  },
+  "moduleAliases": {
+    "ts": {},
+    "br": {}
+  }
+}
