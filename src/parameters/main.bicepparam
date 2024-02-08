@@ -1,15 +1,13 @@
-using './main.bicep'
+using '../main.bicep'
 
-param settings = {
+param metadata = {
   subscriptionId: ''
   resourceGroups: [
     {
       name: ''
       location: ''
+      resources: {}
       tags: {}
     }
   ]
-  resources: {
-    tags: {}
-  }
 }
