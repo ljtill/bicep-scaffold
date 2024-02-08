@@ -1,16 +1,16 @@
 # Scaffold
 
-Use this template to bootstrap a new repository with ready to use automation for deploying Azure services.
+Use this template to quickly set up a new repository with pre-configured automation for deploying Azure services.
 
-The workflow is comprised of three stages - build, test and deploy. These stages can be customized as needed for different deployment scenarios.
+The workflow consists of three main stages: build, test, and deploy. These stages are flexible and can be adjusted to suit various deployment scenarios.
 
-Within the `src/` directory, there are the following artifacts:
+In the `src/` directory, you'll find the following components:
 
-- `main.bicep` This Bicep file that will load defaults, user-defined settings and resource modules
-- `main.bicepparam` This Bicep parameter file handles environment specific settings
-- `bicepconfig.json` This JSON file will customize the Bicep development experience
-- `defaults.json` This JSON file provides Bicep with a set of re-usable common values
-- `modules/` This contains resource groups and resource modules to quickly get started
+- `main.bicep`: This Bicep file orchestrates the deployment of resource groups and resources.
+- `functions/`: This directory contains a set of reusable functions, such as resource name generation.
+- `modules/`:  In this directory, you'll find reusable scope and resource modules.
+- `parameters/`: This directory holds parameter files for environment-specific configurations.
+- `types/`: Contains type definitions for both templates and parameter files.
 
 ---
 
@@ -18,32 +18,36 @@ Within the `src/` directory, there are the following artifacts:
 
 ### Deployment
 
-#### Local Commands
+#### Azure CLI
 
 ```bash
-az deployment sub create \
-  --name '' \
-  --location '' \
-  --template-file './src/main.bicep' \
-  --parameters './src/main.bicepparam'
+az stack sub create \
+    --name 'default' \
+    --template-file './src/main.bicep' \
+    --parameters './src/main.bicepparam' \
+    --deny-settings-mode 'none' \
+    --delete-all \
+    --yes
 ```
 
-```powershell
-New-AzSubscriptionDeployment `
-  -Name "" `
-  -Location "" `
-  -TemplateFile "./src/main.bicep" `
-  -TemplateParameterFile "./src/main.bicepparam"
+```bash
+az stack sub delete \
+    --name 'default' \
+    --delete-all \
+    --yes
 ```
 
 #### GitHub Actions
 
-Azure Active Directory - Application
+Entra ID - Application
 
-- Navigate to the 'App Registration' blade wihin the Azure portal
+
+- Browse to the Entra admin center
+- Navigate to the 'Identity', 'Applications', 'App registrations' blade
 - Select 'New registration' and provide a Name for the application
 - Select the newly created application and select 'Certificates & secrets'
-- Select 'Federated Credentials' and 'Add credential'
+- Select 'Federated credentials' and 'Add credential'
+- Choose 'GitHub Actions deploying Azure resources'
 - Provide the 'Organization (username)' and Repository for the credential
 - Select 'Entity type' - Branch and provide 'main'
 - Repeat process for 'Entity type' - Pull Request
