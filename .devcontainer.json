@@ -1,19 +1,7 @@
 {
-    "name": "Scaffold",
     "image": "mcr.microsoft.com/devcontainers/base:jammy",
     "features": {
-        "ghcr.io/devcontainers/features/azure-cli:1": {
-            "installBicep": true
-        },
-        "ghcr.io/devcontainers/features/powershell:1": {
-            "modules": "Az"
-        }
-    },
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "ms-azuretools.vscode-bicep"
-            ]
-        }
+        "ghcr.io/devcontainers/features/azure-cli:1": {},
+        "ghcr.io/ljtill/features/bicep:1": {}
     }
 }
