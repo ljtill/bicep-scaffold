@@ -29,8 +29,10 @@ jobs:
 
       - name: Deploy
         run: |
-          az deployment sub create \
-            --name "GitHub.Actions" \
-            --location "uksouth" \
+          az stack sub create \
+            --name 'default' \
             --template-file ./src/main.bicep \
-            --parameters @./src/main.bicepparam
+            --parameters ./src/parameters/main.bicepparam \
+            --deny-settings-mode 'none' \
+            --delete-all \
+            --yes
