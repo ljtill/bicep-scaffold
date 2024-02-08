@@ -1,3 +1,10 @@
+// -------
+// Imports
+// -------
+
+import * as functions from './functions/main.bicep'
+import * as types from './types/main.bicep'
+
 // ------
 // Scopes
 // ------
@@ -8,37 +15,15 @@ targetScope = 'subscription'
 // Modules
 // -------
 
-// Resource Groups
-module groups './modules/groups.bicep' = {
-  name: 'Microsoft.ResourceGroups'
-  scope: subscription(settings.subscriptionId)
+module scope './modules/main.scope.bicep' = [for resourceGroup in metadata.resourceGroups: {
+  scope: subscription(metadata.subscriptionId)
   params: {
-    defaults: defaults
-    settings: settings
+    resourceGroup: resourceGroup
   }
-}
-
-// Resources
-module resources './modules/resources.bicep' = {
-  name: 'Microsoft.Resources'
-  scope: resourceGroup(settings.resourceGroups[0].name)
-  params: {
-    defaults: defaults
-    settings: settings
-  }
-  dependsOn: [
-    groups
-  ]
-}
-
-// ---------
-// Variables
-// ---------
-
-var defaults = loadJsonContent('defaults.json')
+}]
 
 // ----------
 // Parameters
 // ----------
 
-param settings object
+param metadata types.metadata
