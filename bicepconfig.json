@@ -6,6 +6,9 @@
       "rules": {
         "no-unused-params": {
           "level": "off"
+        },
+        "use-recent-api-versions": {
+          "level": "info"
         }
       }
     }
@@ -20,8 +23,7 @@
     "resourceDerivedTypes": true,
     "resourceTypedParamsAndOutputs": true,
     "sourceMapping": true,
-    "symbolicNameCodegen": true,
-    "userDefinedFunctions": true
+    "symbolicNameCodegen": true
   },
   "moduleAliases": {
     "ts": {},
