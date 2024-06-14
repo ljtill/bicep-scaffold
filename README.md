@@ -22,17 +22,18 @@ In the `src/` directory, you'll find the following components:
 
 ```bash
 az stack sub create \
-    --name 'default' \
+    --name 'Scaffold' \
     --template-file './src/main.bicep' \
-    --parameters './src/main.bicepparam' \
-    --deny-settings-mode 'none' \
-    --delete-all \
+    --parameters './src/parameters/main.bicepparam' \
+    --action-on-unmanage 'deleteAll' \
+    --deny-settings-mode 'denyWriteAndDelete' \
     --yes
+
 ```
 
 ```bash
 az stack sub delete \
-    --name 'default' \
+    --name 'Scaffold' \
     --delete-all \
     --yes
 ```
@@ -40,7 +41,6 @@ az stack sub delete \
 #### GitHub Actions
 
 Entra ID - Application
-
 
 - Browse to the Entra admin center
 - Navigate to the 'Identity', 'Applications', 'App registrations' blade
