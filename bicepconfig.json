@@ -4,11 +4,8 @@
       "enabled": true,
       "verbose": false,
       "rules": {
-        "no-unused-params": {
-          "level": "off"
-        },
         "use-recent-api-versions": {
-          "level": "info"
+          "level": "warning"
         }
       }
     }
@@ -17,13 +14,9 @@
     "currentProfile": "AzureCloud"
   },
   "experimentalFeaturesEnabled": {
-    "dynamicTypeLoading": true,
-    "extensibility": true,
     "optionalModuleNames": true,
-    "resourceDerivedTypes": true,
-    "resourceTypedParamsAndOutputs": true,
-    "sourceMapping": true,
-    "symbolicNameCodegen": true
+    "extensibility": true,
+    "extendableParamFiles": true
   },
   "moduleAliases": {
     "ts": {},

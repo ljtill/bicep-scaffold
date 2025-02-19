@@ -11,11 +11,17 @@ import * as types from '../types/main.bicep'
 
 targetScope = 'subscription'
 
+// ----------
+// Parameters
+// ----------
+
+param resourceGroup types.resourceGroup
+
 // ---------
 // Resources
 // ---------
 
-resource group 'Microsoft.Resources/resourceGroups@2023-07-01' = {
+resource group 'Microsoft.Resources/resourceGroups@2024-11-01' = {
   name: resourceGroup.name
   location: resourceGroup.location
   properties: {}
@@ -32,9 +38,3 @@ module resources './main.resources.bicep' = {
     resources: resourceGroup.resources
   }
 }
-
-// ----------
-// Parameters
-// ----------
-
-param resourceGroup types.resourceGroup
