@@ -11,14 +11,14 @@ import * as types from '../types/main.bicep'
 
 targetScope = 'resourceGroup'
 
-// ---------
-// Resources
-// ---------
-
-// Placeholder
-
 // ----------
 // Parameters
 // ----------
 
 param resources object[]
+
+// ---------
+// Resources
+// ---------
+
+// Placeholder

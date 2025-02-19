@@ -6,7 +6,7 @@ param metadata = {
     {
       name: ''
       location: ''
-      resources: {}
+      resources: []
       tags: {}
     }
   ]
