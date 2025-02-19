@@ -16,59 +16,61 @@ In the `src/` directory, you'll find the following components:
 
 ## Getting Started
 
-### Deployment
-
-#### Azure CLI
+### Azure CLI
 
 ```bash
 az stack sub create \
     --name 'Scaffold' \
+    --location 'uksouth' \
     --template-file './src/main.bicep' \
     --parameters './src/parameters/main.bicepparam' \
     --action-on-unmanage 'deleteAll' \
-    --deny-settings-mode 'denyWriteAndDelete' \
-    --yes
-
+    --deny-settings-mode 'denyWriteAndDelete'
 ```
 
 ```bash
 az stack sub delete \
     --name 'Scaffold' \
-    --delete-all \
-    --yes
+    --delete-all
 ```
 
-#### GitHub Actions
+### GitHub Actions
 
-Entra ID - Application
+**Entra ID**
+- Login:
+  - Go to [Entra](https://entra.microsoft.com/).
 
-- Browse to the Entra admin center
-- Navigate to the 'Identity', 'Applications', 'App registrations' blade
-- Select 'New registration' and provide a Name for the application
-- Select the newly created application and select 'Certificates & secrets'
-- Select 'Federated credentials' and 'Add credential'
-- Choose 'GitHub Actions deploying Azure resources'
-- Provide the 'Organization (username)' and Repository for the credential
-- Select 'Entity type' - Branch and provide 'main'
-- Repeat process for 'Entity type' - Pull Request
+- Register App:
+  - Navigate to **Identity > Applications > App registrations**.  
+  - Click **New registration** and name your app.
 
-Azure Resource Manager - Role Assignment
+- Configure Credentials:
+  - In your app, go to **Certificates & secrets > Federated credentials**.  
+  - Click **Add credential**, select *GitHub Actions deploying Azure resources*, and fill in the details  
+    (Organization, Repository, etc.).
 
-- Navigate to the Subscription in the Azure portal
-- Select 'Access control (IAM)' and 'Add' - 'Add role assignment'
-- Select Role - Contributor and select 'Members'
-- Provide the 'Name' of the application from the previous steps
+**Azure Resource Manager (ARM)**
+- Login:
+  - Visit the [Azure Portal](https://portal.azure.com).
 
-GitHub Actions - Secrets
+- Set Scope:
+  - Navigate to the desired scope (Subscription, Resource Group, etc.).
 
-- Navigate to 'Settings' on the repository
-- Select 'Secrets' and 'Actions' link
-- Select 'New repository secret' and create secrets for the following:
-  - AZURE_TENANT_ID
-  - AZURE_SUBSCRIPTION_ID
-  - AZURE_CLIENT_ID
+- Role Assignment:
+  - Under **Access control (IAM)**, click **Add role assignment**.  
+  - Select the appropriate **Role**.  
+  - Add your app by name.
 
----
+**GitHub Actions**
+- Repository Settings:
+  - Open your repo on [GitHub](https://github.com).  
+  - Go to **Settings > Security > Secrets and variables > Actions > Secrets**.
+
+- Add Secrets:
+  - Create the following secrets:  
+    - `AZURE_TENANT_ID`  
+    - `AZURE_SUBSCRIPTION_ID`  
+    - `AZURE_CLIENT_ID`
 
 ### Links
 
