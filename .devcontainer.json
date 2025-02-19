@@ -1,8 +1,8 @@
 {
     "image": "mcr.microsoft.com/devcontainers/base:noble",
     "features": {
-        "ghcr.io/devcontainers/features/azure-cli:1": {},
-        "ghcr.io/ljtill/features/bicep:1": {}
+        "ghcr.io/devcontainers/features/azure-cli:latest": {},
+        "ghcr.io/ljtill/features/bicep:latest": {}
     },
     "customizations": {
         "vscode": {
